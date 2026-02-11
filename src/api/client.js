@@ -1,7 +1,10 @@
 const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 async function request(endpoint, options = {}) {
-  const url = `${BASE_URL}${endpoint}`;
+  // Ensure BASE_URL doesn't have a trailing slash and endpoint starts with a slash
+  const cleanBaseUrl = BASE_URL.replace(/\/$/, '');
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const url = `${cleanBaseUrl}${cleanEndpoint}`;
   const config = {
     headers: {
       'Content-Type': 'application/json',
