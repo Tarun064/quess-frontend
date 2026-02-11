@@ -9,7 +9,8 @@ export default function Layout({ children }) {
         <div className={styles.headerInner}>
           <h1 className={styles.logo}>HRMS Lite</h1>
           <nav className={styles.nav}>
-            <NavLink to="/" end>Employees</NavLink>
+            <NavLink to="/" end>Dashboard</NavLink>
+            <NavLink to="/employees">Employees</NavLink>
             <NavLink to="/attendance">Attendance</NavLink>
           </nav>
         </div>
